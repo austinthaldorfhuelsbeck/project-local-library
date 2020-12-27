@@ -1,13 +1,13 @@
 function findAccountById(accounts, id) {
   return accounts.find((account) => account.id === id);
-}
+};
 
 function sortAccountsByLastName(accounts) {
   accounts.sort((accountA, accountB) =>
     accountA.name.last.toLowerCase() > accountB.name.last.toLowerCase() ? 1 : -1
   );
   return accounts;
-}
+};
 
 function numberOfBorrows(account, books) {}
 
@@ -21,7 +21,7 @@ function numberOfBorrows(account, books) {
     if (Object.keys(book.borrows).includes(id)) acc++
   );
   return borrows;
-}
+};
 */
 
 
@@ -34,9 +34,9 @@ function booksInPossession(account, books, authors) {
   );
   filteredBooks.forEach((book) => {
     book.author = authors.find((author) => author.id === book.authorId)
-  );
+  });
   return filteredBooks;
-}
+};
 
 module.exports = {
   findAccountById,
