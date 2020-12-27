@@ -9,20 +9,16 @@ function sortAccountsByLastName(accounts) {
   return accounts;
 };
 
-function numberOfBorrows(account, books) {}
-
-/*
-// use reduce() to turn the book's borrow array into a sum of matches
 function numberOfBorrows(account, books) {
-  const id = account.id;
-  let borrows = 0;
-  borrows = book.reduce((acc, book) =>
-    // if the current book object's borrows keys include id, increment acc
-    if (Object.keys(book.borrows).includes(id)) acc++
-  );
-  return borrows;
-};
-*/
+//reduces the books array by finding the num of reservations by account for each book and accumulating
+  const result = books.reduce((acc, book) => {
+//filters each book's borrows array to include only reservations by account
+    const borrowedByAccount = book.borrows.filter((borrow) => borrow.id === account.id);
+//adds the length of that array to the accumulator
+    return borrowedByAccount.length + acc;
+  }, 0);
+  return result;
+}
 
 
 // uses filter() to build a new list of books from the books array

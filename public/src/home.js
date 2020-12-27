@@ -59,7 +59,23 @@ function mostPopularBooks(books) {
   return result.slice(0, 5);
 };
 
-function mostPopularAuthors(books, authors) {}
+function mostPopularAuthors(books, authors) {
+//follows the same structure as the last two functions
+  let result = [];
+  authors.forEach((author) => {
+    let name = `${author.name.first} ${author.name.last}`;
+    let count = 0;
+//a for within a for here, as we search all the books for the current author
+    books.forEach((book) => {
+      if (book.authorId === author.id) count += book.borrows.length;
+    });
+    let authorWithCount = { name, count };
+    result.push(authorWithCount);
+  });
+
+  result.sort((a, b) => a.count < b.count ? 1 : -1);
+  return result.slice(0, 5);
+}
 
 module.exports = {
   totalBooksCount,
