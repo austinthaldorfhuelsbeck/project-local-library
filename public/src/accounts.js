@@ -25,7 +25,7 @@ function numberOfBorrows(account, books) {
 // the book will be currently checked out by the account if the most recent borrows entry's id === account.id
 // uses forEach() to embed the author object inside
 function booksInPossession(account, books, authors) {
-  let filteredBooks = books.filter((book) => 
+  const filteredBooks = books.filter((book) => 
     book.borrows[0].id === account.id
   );
   filteredBooks.forEach((book) => {
